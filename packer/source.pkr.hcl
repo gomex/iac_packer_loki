@@ -6,7 +6,7 @@ source "amazon-ebs" "ubuntu-us-east-1" {
   ssh_username  = var.user
   instance_type = "t3.micro"
   region        = "us-east-1"
-  ami_name      = replace("base-${local.image_id}", ".", "-")
+  ami_name      = replace("loki-${local.image_id}", ".", "-")
   tags = {
     OS_Version    = "Ubuntu"
     Release       = "${local.image_id}"
@@ -18,10 +18,10 @@ source "amazon-ebs" "ubuntu-us-east-1" {
   source_ami_filter {
     filters = {
       virtualization-type = "hvm"
-      name                = "ubuntu/images/*ubuntu-focal-20.04-amd64-server-*"
+      name                = "base-*"
       root-device-type    = "ebs"
     }
-    owners      = ["099720109477"]
+    owners      = ["405151343467"]
     most_recent = true
   }
 }
