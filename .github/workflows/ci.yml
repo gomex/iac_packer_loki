@@ -1,0 +1,38 @@
+---
+
+name: Packer
+
+on:
+  push:
+
+  pull_request:
+    branches:
+      - main
+
+env:
+  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+jobs:
+  packer-lint:
+
+    runs-on: ubuntu-20.04
+    name: packer-lint
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Format Template
+        uses: hashicorp/packer-github-actions@master
+        with:
+          command: fmt
+          arguments: -check
+          target: packer/
+
+      - name: Validate Template
+        uses: hashicorp/packer-github-actions@master
+        with:
+          command: validate
+          arguments: -syntax-only
+          target: packer/

@@ -1,0 +1,12 @@
+## - import_playbook: users.yml #### Role
+## - import_playbook: ubuntu_update.yml #### Done
+## - import_playbook: ubuntu_upgrade.yml #### Not necessary
+## - import_playbook: ubuntu_kernel.yml #### Done
+## - import_playbook: sysctls.yml #### Done (Check docker ulimit)
+## - import_playbook: ubuntu_docker.yml ## Done
+## - import_playbook: ubuntu_docker_dependencies.yml ## Done
+## - import_playbook: docker_users.yml
+- import_playbook: site24x7-install.yml
+## - import_playbook: ubuntu_swap.yml ## Done
+## - import_playbook: ubuntu_byobu.yml
+## - import_playbook: ubuntu_byobu_enable.yml Done
