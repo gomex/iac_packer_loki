@@ -2,6 +2,6 @@
 # Como utilizar requirements do ansible-galaxy -> https://galaxy.ansible.com/docs/using/installing.html
 
 - src: git@github.com:gomex/iac_role_loki.git
-  version: "v0.1.0"
+  version: "v0.2.0"
   scm: git
   name: iac_role_loki
