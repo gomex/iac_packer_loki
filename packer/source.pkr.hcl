@@ -14,15 +14,16 @@ source "amazon-ebs" "ubuntu-us-east-1" {
     Extra         = "{{ .SourceAMITags.TagName }}"
   }
 
-  ami_regions = ["us-east-2", "us-west-2"]
-  source_ami_filter {
-    filters = {
-      virtualization-type = "hvm"
-      name                = "base-*"
-      root-device-type    = "ebs"
-    }
-    owners      = ["405151343467"]
-    most_recent = true
-  }
+  // source_ami_filter {
+  //   filters = {
+  //     virtualization-type = "hvm"
+  //     name                = "base-*"
+  //     root-device-type    = "ebs"
+  //   }
+  //   owners      = ["405151343467"]
+  //   most_recent = true
+  // }
+  source_ami     = data.hcp-packer-image.base-image.id
+
 }
 
