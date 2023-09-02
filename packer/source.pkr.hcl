@@ -23,7 +23,7 @@ source "amazon-ebs" "ubuntu-us-east-1" {
   //   owners      = ["405151343467"]
   //   most_recent = true
   // }
-  source_ami     = data.hcp-packer-image.base-image.id
+  source_ami = data.hcp-packer-image.base-image.id
 
 }
 
